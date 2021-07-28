@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   vars:
-    resource_group: Dockerser
+    resource_group: Dockerserv
     vm_name: dock
     location: westus
   tasks:
