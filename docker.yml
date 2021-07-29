@@ -11,17 +11,6 @@
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
       location: "{{ location }}"
-  - name: Create virtual network
-    azure_rm_virtualnetwork:
-      resource_group: "{{ resource_group }}"
-      name: "{{ vm_name }}"
-      address_prefixes: "10.0.0.0/16"
-  - name: Add subnet
-    azure_rm_subnet:
-      resource_group: "{{ resource_group }}"
-      name: "{{ vm_name }}"
-      address_prefix: "10.0.1.0/24"
-      virtual_network: "{{ vm_name }}"
   - name: Create public IP address
     azure_rm_publicipaddress:
       resource_group: "{{ resource_group }}"
@@ -42,8 +31,8 @@
     azure_rm_networkinterface:
       resource_group: "{{ resource_group }}"
       name: "{{ vm_name }}"
-      virtual_network: "{{ vm_name }}"
-      subnet: "{{ vm_name }}"
+      virtual_network: "jenkins-vnet"
+      subnet: "jenkins-web-subnet"
       public_ip_name: "{{ vm_name }}"
       security_group: "{{ vm_name }}"
   - name: Create VM
