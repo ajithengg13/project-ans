@@ -5,7 +5,7 @@
   vars:
     resource_group: jenkins-rg
     vm_name: dock
-    location: westus
+    location: eastus
   tasks:
   - name: Create a resource group
     azure_rm_resourcegroup:
